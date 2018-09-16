@@ -24,7 +24,7 @@ SECRET_KEY = 'gr%d76m*%ckb7xsc+%m!0^bco*=u2zyr+7uq0cl=jfec*u=)xl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost']
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1', 'localhost', 'http://127.0.0.1:8000/']
 
 # Application definition
 
@@ -105,14 +105,15 @@ WSGI_APPLICATION = 'articles.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'articles',
-        'USER': 'chetu',
-        'PASSWORD': 'chetu',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres123',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
+
 
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
