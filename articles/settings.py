@@ -113,6 +113,9 @@ WSGI_APPLICATION = 'articles.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+DATABASES = { 'default': django_heroku.dj_database_url.config(ssl_require=False)}
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
