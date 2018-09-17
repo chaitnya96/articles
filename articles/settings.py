@@ -26,6 +26,8 @@ SECRET_KEY = 'gr%d76m*%ckb7xsc+%m!0^bco*=u2zyr+7uq0cl=jfec*u=)xl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 ALLOWED_HOSTS = ['*']
 # Application definition
 
@@ -39,6 +41,8 @@ INSTALLED_APPS = [
     'articlesApp',
     'rest_framework',
     'corsheaders',
+    'whitenoise.runserver_nostatic',
+    # 'django.contrib.staticfiles',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +55,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 CORS_ORIGIN_WHITELIST = (
     'google.com',
