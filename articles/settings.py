@@ -131,6 +131,8 @@ db_from_env = dj_database_url.config(conn_max_age=600)
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
+    'DEFAULT_MODEL_SERIALIZER_CLASS':
+        'rest_framkework.serializers.HyperLinkedModelSerializer',
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissions',
     )

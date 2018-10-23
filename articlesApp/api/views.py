@@ -7,7 +7,7 @@ from .serializers import ArticleSerializers
 class ArticleListView(ListCreateAPIView):
     queryset = Articles.objects.all()
     serializer_class = ArticleSerializers
-    permission_classes = AllowAny
+    permission_classes = (AllowAny,)
 
 
 class ArticleDetailView(RetrieveUpdateDestroyAPIView):
